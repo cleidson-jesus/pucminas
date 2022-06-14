@@ -1,0 +1,14 @@
+<div class="consultaComponent">
+  <div class="consultaComponent-header">
+    <div class="consultaComponent-header-searchButton">
+      <search-component [control]="searchControl" (keyUp)="searchClient()" [name]="'Procure por um usuário'"
+        [className]="['rounded', 'orangered']"></search-component>
+    </div>
+  </div>
+  <div class="consultaComponent-content">
+    <div class="consultaComponent-content-div {{loading ? 'loading':''}}">
+      <table *ngIf="!loading" [componentes]="componentes" (clicked)="userClicked($event)"></table>
+      <loading *ngIf="loading"></loading>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div *ngIf="!loading" class="dados">
+  <div class="dados-goBack">
+    <i (click)="goBack()" class="fa-solid fa-arrow-left"></i>
+  </div>
+
+  <div class="dados-content">
+
+    <div class="dadosGenericosComponentHeader">
+      <div class="dadosGenericosComponentHeader-text" >
+        Dados cadastrais
+      </div>
+    </div>
+
+    <div class="dadosGenericosComponent">
+      <div class="dadosGenericosComponent-content">
+        <div class="subDivider">
+          <wrapper [name]="''"></wrapper>
+          <div>
+            <div class="dadosGenericosComponent-content-userInfo" [formGroup]="formGroup">
+              <div class="dadosGenericosComponent-content-userInfo-group">
+                <input-component [name]="'CPF'" [showLabel]="true" [control]="getControl('cpfCnpj')"></input-component>
+                <input-component [name]="'Nome'" [showLabel]="true" [control]="getControl('nome')"></input-component>
+                <select-component [name]="'Tipo'" [options]="selectOptions.tipoOptions"
+                  [control]="getControl('idTipo')"></select-component>
+              </div>
+              <div class="dadosGenericosComponent-content-userInfo-group">
+                <input-component [mask]="'date'" [name]="'Data Inclusão'" [showLabel]="true"
+                  [control]="getControl('dataHoraInclusao')"></input-component>
+                <input-component [mask]="'date'" [name]="'Data Atualização'" [showLabel]="true"
+                  [control]="getControl('dataHoraAtualizacao')"></input-component>
+                <input-component [mask]="'date'" [name]="'Data Fic. Cadastrasl'" [showLabel]="true"
+                  [control]="getControl('dataFichaCadastral')"></input-component>
+                <select-component [name]="'Rating'" [options]="selectOptions.ratingOptions"
+                  [control]="getControl('idrating')"></select-component>
+                <select-component [name]="'Exp. Mídia'" [options]="selectOptions.trueOrFalseOptions"
+                  [control]="getControl('exposicaoMidia')">
+                </select-component>
+                <select-component [name]="'PEP'" [options]="selectOptions.trueOrFalseOptions"
+                  [control]="getControl('pessoaPep')">
+                </select-component>
+              </div>
+
+              <div class="dadosGenericosComponent-content-userInfo-group">
+                <input-component [name]="'E-mail'" [showLabel]="true" [control]="getControl('email')"></input-component>
+                <select-component [name]="'Gênero'" [options]="selectOptions.generoOptions"
+                  [control]="getControl('idGenero')">
+                </select-component>
+                <input-component [mask]="'date'" [name]="'Data Nascimento'" [showLabel]="true"
+                  [control]="getControl('dataNascimento')"></input-component>
+                <select-component [name]="'Naturalidade'" [options]="selectOptions.cidadeNascimentoOptions"
+                  [control]="getControl('idCidadeNascimento')"></select-component>
+              </div>
+
+              <div class="dadosGenericosComponent-content-userInfo-group">
+                <input-component [name]="'Num. Doc. Identificação'" [showLabel]="true"
+                  [control]="getControl('numeroDocIdentificacao')"></input-component>
+                <input-component [name]="'Renda'" [showLabel]="true" [control]="getControl('renda')"></input-component>
+              </div>
+            </div>
+
+            <div class="buttonDiv">
+              <div class="buttonDiv-saveButton">
+                <button-component (click)="saveClient()" [name]="'Salvar'" [className]="['green']"></button-component>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="loading">
+  <loading></loading>
+</div>

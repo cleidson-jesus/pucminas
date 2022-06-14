@@ -1,0 +1,17 @@
+<div class="sidebarComponent">
+  <div class="sidebarComponent-title">
+    <div class="sidebarComponent-title-logout" (click)="logout()" >
+      Logout
+    </div>
+    <div>{{username}}</div>
+  </div>
+  <!--  -->
+  <div class="sidebarComponent-menu">
+    <div class="sidebarComponent-menu-subMenu" *ngFor="let item of subMenu">
+      <div class="sidebarComponent-menu-subMenu-category" >{{item.category}}</div>
+      <div class="sidebarComponent-menu-subMenu-title" *ngFor="let subItem of item.items" (click)="goTo(subItem.route)">
+        {{subItem.title}}
+      </div>
+    </div>
+  </div>
+</div>

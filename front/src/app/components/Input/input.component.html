@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div *ngIf="showLabel" class="wrapper-label">
+    <div class="wrapper-label-message">{{name}}</div>
+    <div class="wrapper-label-top"></div>
+    <div class="wrapper-label-bottom"></div>
+  </div>
+  <div class="inputComponent {{getClasses()}}">
+    <input mask="{{getMask()}}" class="inputComponent-input {{getClasses()}}" [type]="type" [placeholder]="name" (focus)="setFocus(true)"
+      (blur)="setFocus(false)" [formControl]="control" (keyup)="emitEnterKey($event)" />
+    <div *ngIf="showBorder" class="inputComponent-border {{isFocused ? 'show': '' }} {{getClasses()}}">
+    </div>
+  </div>
+</div>

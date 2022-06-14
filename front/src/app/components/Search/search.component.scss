@@ -1,0 +1,39 @@
+.inputComponent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  &.rounded {
+    border-radius: 30px;
+  }
+  overflow: hidden;
+  &-input {
+    outline: none;
+    height: 100%;
+    width: 100%;
+    padding-left: 15px;
+    border: none;
+    background-color: #f8f8f8;
+    color: gray;
+    &::placeholder {
+      color: gray;
+    }
+  }
+  &-border {
+    position: absolute;
+    bottom: 0px;
+    width: 0px;
+    left: 0px;
+    height: 2px;
+    background-color: orange;
+    visibility: hidden;
+    transition: all ease-in-out 0.15s;
+    &.orangered {
+      background-color: orangered;
+    }
+    &.show {
+      width: 100%;
+      visibility: visible;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+<div class="inputComponent {{getClasses()}}">
+  <input class="inputComponent-input {{getClasses()}}" type="text" [placeholder]="name" (focus)="setFocus(true)"
+    (blur)="setFocus(false)" [formControl]="control" (keyup)="emitEnterKey($event)" />
+  <div class="inputComponent-border {{isFocused ? 'show': '' }} {{getClasses()}}">
+  </div>
+</div>

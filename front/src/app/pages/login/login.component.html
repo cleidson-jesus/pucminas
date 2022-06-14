@@ -1,0 +1,20 @@
+<div  *ngIf="!loading" class="pageComponent">
+  <div class="pageComponent-moldura">
+    <div class="pageComponent-moldura-title">MY-CUSTOMERS</div>
+    <div class="pageComponent-moldura-form">
+      <div>
+        <input-component (keyUp)="login()"  [name]="'Login'" [control]="loginControl"></input-component>
+      </div>
+      <div>
+        <input-component (keyUp)="login()" [name]="'Senha'" [type]="'password'" [control]="senhaControl"></input-component>
+      </div>
+      <div>
+        <button-component (click)="login()" [name]="'ENTRAR'"></button-component>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="loading">
+  <loading></loading>
+</div>

@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <div class="wrapper-label">
+    <div class="wrapper-label-message" >{{name}}</div>
+    <div class="wrapper-label-top"></div>
+    <div class="wrapper-label-bottom"></div>
+  </div>
+  <div class="selectComponent">
+    <select [formControl]="control">
+      <option *ngFor="let option of options" [value]="option.value">{{option.name}}</option>
+    </select>
+  </div>
+</div>

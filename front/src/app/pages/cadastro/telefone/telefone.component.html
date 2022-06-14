@@ -1,0 +1,87 @@
+<div *ngIf="!loading" class="dados">
+  <div class="dados-goBack">
+    <i (click)="goBack()" class="fa-solid fa-arrow-left"></i>
+  </div>
+
+  <div class="dados-content">
+
+    <div class="dadosGenericosComponentHeader">
+      <div class="dadosGenericosComponentHeader-text">
+        Telefone
+      </div>
+      <div class="dadosGenericosComponentHeader-button">
+        <button-component (click)="newAddres()" [name]="'Novo'" [className]="['green']"></button-component>
+      </div>
+    </div>
+
+    <div class="dadosGenericosComponent">
+      <div *ngIf="arrFormGroup.length == 0" class="dadosGenericosComponent-content">
+        <div class="subDivider">
+          <wrapper [name]="''"></wrapper>
+          <div>
+            <div class="dadosGenericosComponent-content-userInfo" [formGroup]="formGroup">
+              <div class="dadosGenericosComponent-content-userInfo-group">
+                <input-component [name]="'CPF'" [showLabel]="true" [control]="getControl('cpfCnpj')"></input-component>
+              </div>
+              <div class="dadosGenericosComponent-content-userInfo-group">
+                <input-component [name]="'ID'" [showLabel]="true" [control]="getControl('id')"></input-component>
+                <input-component [name]="'CEP'" [showLabel]="true" [control]="getControl('cep')"></input-component>
+                <input-component [name]="'Logradouro'" [showLabel]="true" [control]="getControl('logradouro')">
+                </input-component>
+              </div>
+
+              <div class="dadosGenericosComponent-content-userInfo-group">
+                <input-component [name]="'Número'" [showLabel]="true" [control]="getControl('numero')">
+                </input-component>
+              </div>
+            </div>
+
+            <div class="buttonDiv">
+              <div class="buttonDiv-saveButton">
+                <button-component [name]="'Salvar'" [className]="['green']"></button-component>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngFor="let formGroup of arrFormGroup" class="dadosGenericosComponent-content">
+        <div class="subDivider">
+          <wrapper [name]="''"></wrapper>
+          <div>
+            <div class="dadosGenericosComponent-content-userInfo" [formGroup]="formGroup">
+              <div class="dadosGenericosComponent-content-userInfo-group">
+                <input-component [name]="'CPF'" [showLabel]="true" [control]="getControlOnArray(formGroup, 'cpfCnpj')">
+                </input-component>
+              </div>
+              <div class="dadosGenericosComponent-content-userInfo-group">
+                <input-component [name]="'ID'" [showLabel]="true" [control]="getControlOnArray(formGroup, 'id')">
+                </input-component>
+                <input-component [name]="'DDD'" [showLabel]="true" [control]="getControlOnArray(formGroup, 'ddd')">
+                </input-component>
+                <select-component [name]="'Tipo'" [options]="selectOptions.tipoOptions"
+                  [control]="getControlOnArray(formGroup, 'idTipo')">
+                </select-component>
+                <input-component [name]="'Número'" [showLabel]="true"
+                  [control]="getControlOnArray(formGroup, 'numero')"></input-component>
+                <select-component [name]="'Envio SMS'" [options]="selectOptions.envioSmsOptions"
+                  [control]="getControlOnArray(formGroup, 'envioSms')"></select-component>
+              </div>
+            </div>
+
+            <div class="buttonDiv">
+              <div class="buttonDiv-saveButton">
+                <button-component (click)="saveClient(formGroup)" [name]="'Salvar'" [className]="['green']">
+                </button-component>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="loading">
+  <loading></loading>
+</div>

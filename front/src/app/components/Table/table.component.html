@@ -1,0 +1,13 @@
+<div class="tableComponent">
+  <div class="tableComponent-header">
+    <div *ngFor="let header of components.headers">{{header}}</div>
+  </div>
+
+  <div class="tableComponent-content">
+    <div *ngFor="let component of components.values" (click)="rowClicked(component)" >
+      <div *ngFor="let prop of getComponentProperties(component)">
+        <div>{{component[prop]}}</div>
+      </div>
+    </div>
+  </div>
+</div>
